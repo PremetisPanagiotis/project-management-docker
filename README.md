@@ -3,8 +3,9 @@
 
 ## Run locally
 ```bash
+git clone https://github.com/PremetisPanagiotis/project-management-docker.git
 cp .env.example .env
-docker compose up --build
+docker compose up
 ```
 
 ## Usage
