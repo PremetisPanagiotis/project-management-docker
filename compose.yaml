@@ -1,13 +1,13 @@
 services:
   web:
     build:
-      context: https://github.com/your-org/project-management-front.git
+      image: ghcr.io/premetispanagiotis/project-management-front:latest
     ports:
       - "4200:8000"
       
   api:
     build:
-      context: https://github.com/your-org/project-management-back.git
+      image: ghcr.io/premetispanagiotis/project-management-back:latest
     environment:
       DB_URL: jdbc:mysql://db:3306/project_management_db?characterEncoding=UTF-8
       DB_USER: root
