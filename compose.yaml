@@ -1,0 +1,28 @@
+services:
+  web:
+    build:
+      context: https://github.com/your-org/project-management-front.git
+    ports:
+      - "4200:8000"
+      
+  api:
+    build:
+      context: https://github.com/your-org/project-management-back.git
+    environment:
+      DB_URL: jdbc:mysql://db:3306/project_management_db?characterEncoding=UTF-8
+      DB_USER: root
+      DB_PASSWORD: password
+    expose:
+      - '9000'
+    depends_on:
+      - db
+      
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: project_management_db
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    ports:
+      - "33060:3306"
